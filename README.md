@@ -21,10 +21,15 @@ To install openfin-generator from npm, run:
 npm install -g openfin-generator
 ```
 
-Finally, initiate the generator:
+Initiate the generator:
 
 ```bash
 yo openfin
+```
+
+Finally, you can serve the new OpenFin application:
+```bash
+grunt serve
 ```
 
 ## License
