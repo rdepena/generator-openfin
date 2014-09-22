@@ -15,10 +15,10 @@ npm install -g yo grunt grunt-cli
 
 ### Install Yeoman Generator
 
-To install openfin-generator from npm, run:
+To install generator-openfin from npm, run:
 
 ```bash
-npm install -g openfin-generator
+npm install -g generator-openfin
 ```
 
 Initiate the generator:
