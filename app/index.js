@@ -1,15 +1,17 @@
 /* jshint node: true */
 
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
-var yosay = require('yosay');
-var fs = require('fs');
-var myPromts = {
-    "description": "A damn cool package",
-    "name": "myApp"
-};
+var util = require('util'),
+    path = require('path'),
+    yeoman = require('yeoman-generator'),
+    yosay = require('yosay'),
+    fs = require('fs'),
+    rvmDownloader = require('./rvm-downloader'),
+    myPromts = {
+        "description": "a OpenFin POC Application",
+        "name": "OpenFinPOC"
+    },
+    rvmDownloadUrl = 'https://developer.openfin.co/release/rvm/latest';
 var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
     initializing: function() {
         this.pkg = require('../package.json');
@@ -62,6 +64,7 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
 
             //public css files
             this.src.copy('public/css/main.css', 'public/css/main.css');
+            this.src.copy('public/css/bootstrap.min.css', 'public/css/bootstrap.min.css');
 
             //public js files
             this.src.copy('public/js/main.js', 'public/js/main.js');
@@ -110,6 +113,11 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
 
         //we are done, install any dependencies.
         this.installDependencies();
+
+        //download the rmv
+        rvmDownloader.download(rvmDownloadUrl, function() {
+            console.log('RVM Ready to be used.');
+        });
     }
 });
 

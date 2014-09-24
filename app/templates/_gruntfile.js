@@ -6,15 +6,13 @@ module.exports = function(grunt) {
             'gruntfile.js',
             'public/**/*.js',
             'public/**/*.json',
-            '*.json',
-            '!public/bower_components/**/*.js'
+            '*.json'
         ],
         html: [
             'public/**/*.html'
         ],
         css: [
-            'public/**/*.css',
-            '!public/bower_components/**/*.css'
+            'public/**/*.css'
         ]
     };
 
