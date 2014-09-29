@@ -19,11 +19,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         watch: {
             code: {
-                files: [
-                    files.html.join(','),
-                    files.css.join(','),
-                    files.js.join(',')
-                ],
+                files: files.html.concat(files.css).concat(files.js),
                 tasks: ['default'],
                 options: {
                     livereload: true
@@ -36,11 +32,7 @@ module.exports = function(grunt) {
                         'public'
                     ]
                 },
-                files: [
-                    files.html.join(','),
-                    files.css.join(','),
-                    files.js.join(',')
-                ]
+                files: files.html.concat(files.css).concat(files.js),
             }
         },
         jshint: {
