@@ -12,6 +12,8 @@ var util = require('util'),
         "name": "OpenFinPOC"
     },
     rvmDownloadUrl = 'https://developer.openfin.co/release/rvm/latest';
+
+
 var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
     initializing: function() {
         this.pkg = require('../package.json');
@@ -52,6 +54,8 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
             this.src.copy('_bower.json', 'bower.json');
             this.src.copy('_.bowerrc', '.bowerrc');
             this.src.copy('_package.json', 'package.json');
+            this.src.copy('Procfile', 'Procfile');
+            this.src.copy('_.gitignore', '.gitignore');
 
             //root src files
             this.src.copy('src/launcher.js', 'src/launcher.js');
@@ -87,7 +91,7 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
             for (var opt in myPromts) {
                 pack[opt] = myPromts[opt];
             }
-            fs.writeFile('package.json', JSON.stringify(pack, null, " "), function(err) {
+            fs.writeFile('package.json', JSON.stringify(pack, null, "    "), function(err) {
                 if (err) throw err;
                 console.log('package.json formatted');
             });
@@ -105,7 +109,7 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
             appConfig.shortcut.name = myPromts.name;
             appConfig.shortcut.description = myPromts.description;
 
-            fs.writeFile('public/app.json', JSON.stringify(appConfig, null, " "), function(err) {
+            fs.writeFile('public/app.json', JSON.stringify(appConfig, null, "    "), function(err) {
                 if (err) throw err;
                 console.log('public/app.json formatted');
             });
