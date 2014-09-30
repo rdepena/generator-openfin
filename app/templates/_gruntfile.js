@@ -19,11 +19,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         watch: {
             code: {
-                files: [
-                    files.html.join(','),
-                    files.css.join(','),
-                    files.js.join(',')
-                ],
+                files: [].concat(files.html, files.css, files.js),
                 tasks: ['default'],
                 options: {
                     livereload: true
@@ -36,11 +32,7 @@ module.exports = function(grunt) {
                         'public'
                     ]
                 },
-                files: [
-                    files.html.join(','),
-                    files.css.join(','),
-                    files.js.join(',')
-                ]
+                files: [].concat(files.html, files.css, files.js)
             }
         },
         jshint: {
@@ -75,7 +67,7 @@ module.exports = function(grunt) {
         },
         connect: {
             options: {
-                port: 5000,
+                port: process.env.PORT || 5000,
                 // Change this to '0.0.0.0' to access the server from outside.
                 hostname: '0.0.0.0',
                 livereload: 35729
