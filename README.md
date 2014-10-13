@@ -33,6 +33,15 @@ The template makes use of [grunt](http://gruntjs.com/) for linting and serving t
 grunt serve
 ```
 
+To update the app.json with a URL at build time you can specify a target:
+```bash
+grunt build --target="http://hosted-app.com"
+```
+
+This can be done with the serve task as well
+```bash
+grunt serve --target="http://hosted-app.com"
+```
 ## License
 
 MIT
