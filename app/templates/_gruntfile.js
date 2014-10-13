@@ -90,6 +90,22 @@ module.exports = function(grunt) {
         launcher.launchOpenfin();
     });
 
+    //modifies the app.config to point to a specific server
+    grunt.registerTask('config-builder', 'open fin launcher', function() {
+        var configBuilder = require('./src/configBuilder'),
+            target = grunt.option('target'),
+            //this task is asynchronous.
+            done = this.async();
+
+        if (target) {
+            //request the config to be updated with a given target and pass the grunt done function.
+            configBuilder.build(target, done);
+        } else {
+            console.log('no target specific, app.json running defaults');
+            done();
+        }
+    });
+
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jsbeautifier');
@@ -97,6 +113,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['jshint', 'jsbeautifier']);
     grunt.registerTask('test', ['jshint', 'jsbeautifier']);
-    grunt.registerTask('serve', ['test', 'connect:livereload', 'openfin-launcher', 'watch']);
+    grunt.registerTask('serve', ['test', 'config-builder', 'connect:livereload', 'openfin-launcher', 'watch']);
+    grunt.registerTask('build', ['test', 'config-builder']);
 
 };

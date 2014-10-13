@@ -59,6 +59,7 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
 
             //root src files
             this.src.copy('src/launcher.js', 'src/launcher.js');
+            this.src.copy('src/configBuilder.js', 'src/configBuilder.js');
 
             //public root files
             this.src.copy('public/index.html', 'public/index.html');
