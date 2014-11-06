@@ -29,6 +29,8 @@ yo openfin
 
 ### Grunt tasks
 The template makes use of [grunt](http://gruntjs.com/) for linting and serving the content, to run the application in the OpenFin Runtime:
+
+**Serve task will ONLY launch the OpenFin Runtime in Windows**
 ```bash
 grunt serve
 ```
