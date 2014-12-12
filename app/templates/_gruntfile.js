@@ -80,14 +80,12 @@ module.exports = function(grunt) {
                     ]
                 }
             }
-
+        },
+        openfin: {
+            options: {
+                configPath: 'http://localhost:5000/app.json'
+            }
         }
-    });
-
-    grunt.registerTask('openfin-launcher', 'open fin launcher', function() {
-        var launcher = require('./src/launcher');
-        //launch openfin.
-        launcher.launchOpenfin();
     });
 
     //modifies the app.config to point to a specific server
@@ -110,10 +108,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jsbeautifier');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-openfin');
 
     grunt.registerTask('default', ['jshint', 'jsbeautifier']);
     grunt.registerTask('test', ['jshint', 'jsbeautifier']);
-    grunt.registerTask('serve', ['test', 'config-builder', 'connect:livereload', 'openfin-launcher', 'watch']);
+    grunt.registerTask('serve', ['test', 'config-builder', 'connect:livereload', 'openfin', 'watch']);
     grunt.registerTask('build', ['test', 'config-builder']);
 
 };
