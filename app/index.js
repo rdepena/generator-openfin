@@ -6,7 +6,6 @@ var util = require('util'),
     yeoman = require('yeoman-generator'),
     yosay = require('yosay'),
     fs = require('fs'),
-    rvmDownloader = require('./rvm-downloader'),
     myPromts = {
         "description": "a OpenFin POC Application",
         "name": "OpenFinPOC"
@@ -58,7 +57,6 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
             this.src.copy('_.gitignore', '.gitignore');
 
             //root src files
-            this.src.copy('src/launcher.js', 'src/launcher.js');
             this.src.copy('src/configBuilder.js', 'src/configBuilder.js');
 
             //public root files
@@ -118,11 +116,6 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
 
         //we are done, install any dependencies.
         this.installDependencies();
-
-        //download the rmv
-        rvmDownloader.download(rvmDownloadUrl, function() {
-            console.log('RVM Ready to be used.');
-        });
     }
 });
 
