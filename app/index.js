@@ -56,9 +56,6 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
             this.src.copy('Procfile', 'Procfile');
             this.src.copy('_.gitignore', '.gitignore');
 
-            //root src files
-            this.src.copy('src/configBuilder.js', 'src/configBuilder.js');
-
             //public root files
             this.src.copy('public/index.html', 'public/index.html');
             this.src.copy('public/404.html', 'public/404.html');

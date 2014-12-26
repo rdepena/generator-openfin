@@ -29,9 +29,12 @@
 
     //event listeners.
     document.addEventListener('DOMContentLoaded', function() {
-        //update UI and set event handlers.
-        updateAdapterIndicator();
-        setVersionNumber();
-        setLearnMoreEventHandler();
+        //OpenFin is ready
+        fin.desktop.main(function() {
+            //update UI and set event handlers.
+            updateAdapterIndicator();
+            setVersionNumber();
+            setLearnMoreEventHandler();
+        });
     });
 }());
