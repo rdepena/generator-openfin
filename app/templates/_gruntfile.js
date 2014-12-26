@@ -4,19 +4,19 @@ module.exports = function(grunt) {
     var target = grunt.option('target') || 'http://localhost:5000',
         port = process.env.PORT || 5000,
         files = {
-        js: [
-            'gruntfile.js',
-            'public/**/*.js',
-            'public/**/*.json',
-            '*.json'
-        ],
-        html: [
-            'public/**/*.html'
-        ],
-        css: [
-            'public/**/*.css'
-        ]
-    };
+            js: [
+                'gruntfile.js',
+                'public/**/*.js',
+                'public/**/*.json',
+                '*.json'
+            ],
+            html: [
+                'public/**/*.html'
+            ],
+            css: [
+                'public/**/*.css'
+            ]
+        };
 
     grunt.initConfig({
         watch: {
