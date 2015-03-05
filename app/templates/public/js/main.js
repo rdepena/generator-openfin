@@ -23,7 +23,23 @@
         var learnMoreButton = document.querySelector('#learn-more');
 
         learnMoreButton.addEventListener('click', function() {
-            fin.desktop.System.openUrlWithBrowser('http://openfin.co/developers.html?url=developers/getting-started/getting-started.html');
+            fin.desktop.System.openUrlWithBrowser('https://openfin.co/developers/javascript-api/');
+        });
+    };
+
+    var setVisibilityDisplayOnce = function() {
+        document.querySelector('#inter-app-messages').style.display = 'block';
+        setVisibilityDisplayOnce = function() {};
+    };
+
+    var subscribeToInterAppBus = function() {
+        var messageCtrl = document.querySelector('#message'),
+            timeStampCtrl = document.querySelector('#time');
+
+        fin.desktop.InterApplicationBus.subscribe('*', 'inter:app:sub', function(msg) {
+            setVisibilityDisplayOnce();
+            messageCtrl.innerText = msg.message;
+            timeStampCtrl.innerText = new Date(msg.timeStamp).toLocaleTimeString();
         });
     };
 
@@ -35,6 +51,7 @@
             updateAdapterIndicator();
             setVersionNumber();
             setLearnMoreEventHandler();
+            subscribeToInterAppBus();
         });
     });
 }());
