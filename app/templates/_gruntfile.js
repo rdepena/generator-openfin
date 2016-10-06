@@ -40,6 +40,7 @@ module.exports = function(grunt) {
         jshint: {
             jsFiles: files.js,
             options: {
+                reporterOutput: '',
                 node: false
             }
         },
@@ -93,6 +94,9 @@ module.exports = function(grunt) {
                         startup_app: {
                             url: target + '/index.html',
                             applicationIcon: target + '/favicon.ico'
+                        },
+                        runtime: {
+                            version:'beta'
                         },
                         shortcut: {
                             icon: target + '/favicon.ico'
