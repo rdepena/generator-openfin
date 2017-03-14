@@ -41,7 +41,8 @@ module.exports = function(grunt) {
             jsFiles: files.js,
             options: {
                 reporterOutput: '',
-                node: false
+                node: false,
+                esnext: true
             }
         },
         jsbeautifier: {
@@ -96,7 +97,7 @@ module.exports = function(grunt) {
                             applicationIcon: target + '/favicon.ico'
                         },
                         runtime: {
-                            version:'beta'
+                            version: 'beta'
                         },
                         shortcut: {
                             icon: target + '/favicon.ico'
