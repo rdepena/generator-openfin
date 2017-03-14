@@ -73,6 +73,10 @@ var OpenfinGeneratorGenerator = yeoman.generators.Base.extend({
         projectfiles: function() {
             this.src.copy('editorconfig', '.editorconfig');
             this.src.copy('jshintrc', '.jshintrc');
+
+            // VSCode editor settings
+            this.dest.mkdir('.vscode');
+            this.src.copy('.vscode/settings.json', '.vscode/settings.json');
         }
     },
 
