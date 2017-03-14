@@ -19,9 +19,12 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            jsFiles: files.js,
+            files: {
+                src: files.js
+            },
             options: {
-                node: false
+                node: true,
+                reporterOutput: ""
             }
         },
         jsbeautifier: {
